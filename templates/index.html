@@ -1,0 +1,34 @@
+<html>
+    <head></head>
+    <title></title>
+    <body>
+        <div class="container">
+            <h1>Weather App</h1>
+            <p>Check the current weather of any city</p>
+            <form method="POST">
+                <input type="text" name="city" placeholder="Enter The City Name" required>
+                <button type="submit">Get weather</button>
+            </form>
+            {%if error%}
+                <p class="error">{{error}}</p>
+            {%endif%}
+            {%if weather%}
+            <div class="result">
+                <h2>
+                    {{weather.city}}
+                </h2>
+                <img src="http.//openweathermap.org/img/wn/{{weather.icon}}@2x.png">
+                <div class="temperature">
+                    {{weather.temperature}}
+                </div>
+                <p>{{weather.condition|title}}</p>
+                <div class="details">
+                    <p>Feels like:{{weather.feels_like}}</p>
+                    <p>Humidity:{{weather_humidity}}</p>
+                    <p>Wind speed:{{weather.wind}}</p>
+                </div>
+                {%endif%}
+            </div>
+        </div>
+    </body>
+</html>
